@@ -1,14 +1,13 @@
 let baseurlBackend = "http://localhost:7000/api";
-function signup(e){
+function logoutuseingbackEndApi(e){
 e.preventDefault();
-const formData = new FormData(document.querySelector('#signup_form'));
-// alert('testing here');
 $.ajax({
     url: baseurlBackend+"/register",
     // headers: {  'Access-Control-Allow-Origin': '*' },
     // crossDomain: true,
     type: 'POST',
-    data: formData,
+    // data: formData,
+    Headers:{'token':localStorage.getItem('jwt_token')},
     dataType: "json",
     contentType: false,
     cache: false,
@@ -36,20 +35,6 @@ $.ajax({
         // $('#login-page').modal("hide");
         $('.login-submit-btn').text('CONTINUE');
       }, 2500);
-      if(response.success==true){
-        $('.signupFormAlertDiv').css('display','');
-        $('.signupFormAlertDiv').append(response.message);
-        setTimeout(() => {
-          $('.signupFormAlertDiv').css('display','none');
-          $('.signupFormAlertDiv').empty();
-          if(response.success == true){
-        //   window.location = '/admin';
-          }else{
-            // window.location = '/admin/search-business';
-          }
-        }, 5000);
-      }
-
     },
     error: function error(error) {
       console.log('login error accoured',error);

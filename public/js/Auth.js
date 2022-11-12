@@ -1,7 +1,7 @@
 let baseurlBackend = "http://localhost:7000/api";
 function loginForm(e){
 e.preventDefault();
-const formData = new FormData(document.querySelector('#signup'));
+const formData = new FormData(document.querySelector('#login'));
 // alert('testing here');
 $.ajax({
     url: baseurlBackend+"/login",
@@ -15,7 +15,6 @@ $.ajax({
     processData: false,
     //THIS NEEDS TO BE GET
     success: function success(response) {
-        localStorage.setItem('jwt_token',response.token);  
       console.log('login response for debugging', response.message);
       if(response.success == false){
       $('.loginFormAlertDiv').css('display','');
@@ -37,24 +36,21 @@ $.ajax({
         $('.login-submit-btn').text('CONTINUE');
       }, 3000);
       if(response.success==true){
-        $('.loginFormSuccessAlertDiv').css('display','');
-        $('.loginFormSuccessAlertDiv').append(response.message);
+        localStorage.setItem('jwt_token',response.token);
+        $('.loginFormAlertDiv').css('display','');
+        $('.loginFormAlertDiv').append('you are successfully logged in .');
         setTimeout(() => {
           $('.loginFormSuccessAlertDiv').css('display','none');
           $('.loginFormSuccessAlertDiv').empty();
           if(response.success == true){
-        //   window.location = '/admin';
-          }else{
-            // window.location = '/admin/search-business';
+            window.location = '/dashboard';
           }
-          $('.login-submit-btn').text('CONTINUE');
-        }, 1500);
+        }, 2000);
       }
 
     },
     error: function error(error) {
       console.log('login error accoured',error);
-      $('.login-submit-btn').text('CONTINUE');
     }
   });
 }

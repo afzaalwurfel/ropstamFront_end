@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Ropstam login page</a>
+          <a class="navbar-brand" href="#">Ropstam dashboard</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
 
@@ -33,7 +33,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center"> Ropstam <small>Sign up</small></h1>
+            <h1 class="text-center"> Ropstam <small>Dashboard</small></h1>
+            <a class="navbar-brand " style="float:right;" onclick="logoutuseingbackEndApi(event);" href="http://localhost:7000/api/logout">logout</a>
           </div>
         </div>
       </div>
@@ -62,5 +63,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/Dashboard.js"></script>
   </body>
 </html>
