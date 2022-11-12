@@ -48,13 +48,14 @@
             <form id="login" action="" class="well">
                   <div class="form-group">
                     <label>Email Address</label>
-                    <input type="text" class="form-control" name="email" id="id" placeholder="Enter Email">
+                    <input type="email" class="form-control" name="email" id="id" placeholder="Enter Email">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                   </div>
                   <button onclick="loginForm(event);" type="submit" class="btn btn-default btn-block">Login</button>
+                    <a href="/signup">Register</a>
               </form>
           </div>
         </div>

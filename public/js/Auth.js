@@ -1,7 +1,7 @@
 let baseurlBackend = "http://localhost:7000/api";
 function loginForm(e){
 e.preventDefault();
-const formData = new FormData(document.querySelector('#login'));
+const formData = new FormData(document.querySelector('#signup'));
 // alert('testing here');
 $.ajax({
     url: baseurlBackend+"/login",
@@ -20,6 +20,14 @@ $.ajax({
       if(response.success == false){
       $('.loginFormAlertDiv').css('display','');
       $('.loginFormAlertDiv').append(response.message);
+      }else if(response.error){
+        $('.loginFormAlertDiv').css('display','');
+        if(response.error.password){
+            $('.loginFormAlertDiv').append(response.error.password);
+        }
+        if(response.error.email){
+            $('.loginFormAlertDiv').append(response.error.email);
+        }
       }
     //   messageToaster('success', response.success, 'Success');
       setTimeout(() => {
@@ -27,7 +35,7 @@ $.ajax({
         $('.loginFormAlertDiv').empty();
         // $('#login-page').modal("hide");
         $('.login-submit-btn').text('CONTINUE');
-      }, 2500);
+      }, 3000);
       if(response.success==true){
         $('.loginFormSuccessAlertDiv').css('display','');
         $('.loginFormSuccessAlertDiv').append(response.message);
