@@ -15,7 +15,7 @@ $.ajax({
     processData: false,
     //THIS NEEDS TO BE GET
     success: function success(response) {
-      console.log('login response for debugging', response.message);
+      console.log('login response for debugging', response);
       if(response.success == false){
       $('.loginFormAlertDiv').css('display','');
       $('.loginFormAlertDiv').append(response.message);
