@@ -54,16 +54,33 @@ $(function () {
         }
     },
       columns: [{
-        data: 'DT_RowIndex',
-        name: 'DT_RowIndex',
+        data: 'car_name',
+        name: 'car Name',
+        orderable: false,
+        searchable: false
+      },{
+        data: 'velical_class',
+        name: 'vehical class',
+        orderable: false,
+        searchable: false
+      },{
+        data: 'velical_brand',
+        name: 'vehical brand',
+        orderable: false,
+        searchable: false
+      },{
+        data: 'car_color',
+        name: 'car color',
+        orderable: false,
+        searchable: false
+      },{
+        data: 'car_engineCapacity',
+        name: 'car engine capicity',
         orderable: false,
         searchable: false
       }, {
-        data: 'name',
-        name: 'name'
-      }, {
         data: 'action',
-        name: 'action',
+        name: 'Actions',
         orderable: false,
         searchable: false
       }]
