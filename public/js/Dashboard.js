@@ -39,3 +39,33 @@ $.ajax({
     }
   });
 }
+
+// get car's
+$(function () {
+    var table = $('.dataTable').DataTable({
+      processing: true,
+      serverSide: true,
+    //   ajax: baseurlBackend+'/cars',
+      ajax: {
+        url: baseurlBackend+'/cars',
+        type: "GET",
+        data: {
+            token: localStorage.getItem('jwt_token')
+        }
+    },
+      columns: [{
+        data: 'DT_RowIndex',
+        name: 'DT_RowIndex',
+        orderable: false,
+        searchable: false
+      }, {
+        data: 'name',
+        name: 'name'
+      }, {
+        data: 'action',
+        name: 'action',
+        orderable: false,
+        searchable: false
+      }]
+    });
+  });
